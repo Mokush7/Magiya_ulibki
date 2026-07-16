@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Магия улыбки — Стоматология в Твери</title>
+  <meta name="description" content="Стоматологическая клиника «Магия улыбки» в Твери. Собственная зуботехническая лаборатория. Протезирование от 1 дня. Запись: +7 (900) 111-05-02">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f0f8fb; color: #1a2e3a; }
+
+    /* NAV */
+    .nav { background: #fff; padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e0eff5; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-size: 18px; font-weight: 700; color: #1a2e3a; display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .nav-logo span { color: #3bb8d8; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { text-decoration: none; color: #5a7a8a; font-size: 14px; font-weight: 500; }
+    .nav-links a:hover { color: #3bb8d8; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-phone { font-size: 15px; font-weight: 700; color: #1a2e3a; text-decoration: none; }
+    .nav-phone:hover { color: #3bb8d8; }
+    .nav-cta { background: #3bb8d8; color: #fff; border: none; padding: 10px 22px; border-radius: 50px; font-size: 14px; font-weight: 600; cursor: pointer; }
+
+    /* HERO */
+    .hero { background: #e8f5fb; padding: 60px 40px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; min-height: 480px; }
+    .hero-eyebrow { font-size: 12px; font-weight: 600; color: #3bb8d8; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
+    .hero-title { font-size: 42px; font-weight: 800; line-height: 1.15; color: #1a2e3a; margin-bottom: 16px; }
+    .hero-title em { color: #3bb8d8; font-style: normal; }
+    .hero-sub { font-size: 16px; color: #5a7a8a; line-height: 1.6; margin-bottom: 28px; max-width: 420px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { background: #3bb8d8; color: #fff; border: none; padding: 14px 28px; border-radius: 50px; font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-secondary { background: #fff; color: #3bb8d8; border: 2px solid #3bb8d8; padding: 12px 26px; border-radius: 50px; font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .hero-stats { display: flex; gap: 28px; margin-top: 32px; }
+    .stat-num { font-size: 26px; font-weight: 800; color: #3bb8d8; }
+    .stat-label { font-size: 12px; color: #5a7a8a; margin-top: 2px; }
+    .hero-right { display: flex; flex-direction: column; gap: 14px; }
+    .hero-card { background: #fff; border-radius: 16px; padding: 20px; display: flex; align-items: center; gap: 14px; }
+    .hero-card-icon { width: 48px; height: 48px; background: #e8f5fb; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .hero-card-icon i { font-size: 22px; color: #3bb8d8; }
+    .hero-card-title { font-size: 15px; font-weight: 700; color: #1a2e3a; }
+    .hero-card-sub { font-size: 13px; color: #5a7a8a; margin-top: 2px; }
+    .hero-card.accent { background: #3bb8d8; }
+    .hero-card.accent .hero-card-icon { background: rgba(255,255,255,0.2); }
+    .hero-card.accent .hero-card-icon i { color: #fff; }
+    .hero-card.accent .hero-card-title { color: #fff; }
+    .hero-card.accent .hero-card-sub { color: rgba(255,255,255,0.8); }
+
+    /* SECTIONS */
+    .section { padding: 64px 40px; }
+    .section-eyebrow { font-size: 12px; font-weight: 600; color: #3bb8d8; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
+    .section-title { font-size: 32px; font-weight: 800; color: #1a2e3a; margin-bottom: 12px; line-height: 1.2; }
+    .section-sub { font-size: 16px; color: #5a7a8a; line-height: 1.6; max-width: 560px; }
+
+    /* ABOUT */
+    .about { background: #fff; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-top: 40px; }
+    .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+    .about-feat { background: #f0f8fb; border-radius: 14px; padding: 20px; }
+    .about-feat i { font-size: 24px; color: #3bb8d8; margin-bottom: 10px; display: block; }
+    .about-feat-title { font-size: 14px; font-weight: 700; color: #1a2e3a; }
+    .about-feat-sub { font-size: 13px; color: #5a7a8a; margin-top: 4px; line-height: 1.4; }
+    .about-image-block { background: linear-gradient(135deg, #d0eef7, #b8e4f3); border-radius: 20px; height: 320px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .about-image-block img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
+    .about-badge { position: absolute; bottom: 20px; left: 20px; background: #fff; border-radius: 12px; padding: 12px 16px; display: flex; align-items: center; gap: 10px; }
+    .about-badge i { font-size: 20px; color: #f5a623; }
+    .about-badge-text { font-size: 13px; font-weight: 600; color: #1a2e3a; }
+    .about-badge-sub { font-size: 12px; color: #5a7a8a; }
+
+    /* SERVICES */
+    .services { background: #f0f8fb; }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
+    .service-card { background: #fff; border-radius: 16px; padding: 24px; }
+    .service-icon { width: 52px; height: 52px; background: #e8f5fb; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .service-icon i { font-size: 24px; color: #3bb8d8; }
+    .service-title { font-size: 16px; font-weight: 700; color: #1a2e3a; margin-bottom: 8px; }
+    .service-desc { font-size: 13px; color: #5a7a8a; line-height: 1.5; }
+    .service-card.featured { background: #3bb8d8; }
+    .service-card.featured .service-icon { background: rgba(255,255,255,0.2); }
+    .service-card.featured .service-icon i { color: #fff; }
+    .service-card.featured .service-title { color: #fff; }
+    .service-card.featured .service-desc { color: rgba(255,255,255,0.85); }
+
+    /* WHY */
+    .why { background: #fff; }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+    .why-card { border: 1.5px solid #e0eff5; border-radius: 16px; padding: 28px; }
+    .why-num { font-size: 40px; font-weight: 800; color: #d8f0f8; margin-bottom: 12px; }
+    .why-title { font-size: 16px; font-weight: 700; color: #1a2e3a; margin-bottom: 8px; }
+    .why-desc { font-size: 14px; color: #5a7a8a; line-height: 1.6; }
+
+    /* CASES */
+    .cases { background: #f0f8fb; }
+    .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+    .case-card { background: #fff; border-radius: 16px; padding: 24px; }
+    .case-before-after { display: flex; gap: 10px; margin-bottom: 16px; }
+    .case-img { flex: 1; height: 140px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #5a7a8a; overflow: hidden; }
+    .case-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+    .case-img.before { background: #f5f5f0; }
+    .case-img.after { background: #e8f5fb; }
+    .case-type { font-size: 11px; font-weight: 600; color: #3bb8d8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .case-title { font-size: 15px; font-weight: 700; color: #1a2e3a; margin-bottom: 6px; }
+    .case-desc { font-size: 13px; color: #5a7a8a; line-height: 1.5; }
+    .case-time { display: inline-block; background: #e8f5fb; color: #3bb8d8; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 50px; margin-top: 10px; }
+
+    /* TEAM */
+    .team { background: #fff; }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+    .team-card { text-align: center; }
+    .team-avatar { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #d0eef7, #b8e4f3); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .team-avatar i { font-size: 48px; color: #3bb8d8; }
+    .team-name { font-size: 17px; font-weight: 700; color: #1a2e3a; }
+    .team-role { font-size: 13px; color: #3bb8d8; font-weight: 600; margin: 4px 0 8px; }
+    .team-exp { font-size: 13px; color: #5a7a8a; }
+
+    /* REVIEWS */
+    .reviews { background: #f0f8fb; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+    .review-card { background: #fff; border-radius: 16px; padding: 24px; }
+    .stars { color: #f5a623; font-size: 16px; margin-bottom: 12px; }
+    .review-text { font-size: 14px; color: #3a5060; line-height: 1.6; margin-bottom: 16px; font-style: italic; }
+    .review-author { display: flex; align-items: center; gap: 10px; }
+    .review-avatar { width: 38px; height: 38px; border-radius: 50%; background: #e8f5fb; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #3bb8d8; flex-shrink: 0; }
+    .review-name { font-size: 14px; font-weight: 700; color: #1a2e3a; }
+    .review-date { font-size: 12px; color: #5a7a8a; }
+
+    /* FAQ */
+    .faq { background: #fff; }
+    .faq-list { max-width: 720px; margin: 40px auto 0; }
+    .faq-item { border: 1.5px solid #e0eff5; border-radius: 14px; margin-bottom: 12px; }
+    .faq-q { padding: 18px 22px; font-size: 15px; font-weight: 600; color: #1a2e3a; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+    .faq-q i { font-size: 18px; color: #3bb8d8; transition: transform 0.2s; }
+    .faq-item.open .faq-q i { transform: rotate(45deg); }
+    .faq-a { display: none; padding: 0 22px 18px; font-size: 14px; color: #5a7a8a; line-height: 1.7; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* FORM */
+    .form-section { background: #3bb8d8; padding: 64px 40px; }
+    .form-inner { max-width: 720px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .form-title { font-size: 32px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .form-sub { font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.6; }
+    .form-trust { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+    .form-trust-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.9); }
+    .form-trust-item i { font-size: 18px; color: rgba(255,255,255,0.7); }
+    .form-box { background: #fff; border-radius: 20px; padding: 28px; }
+    .form-label { font-size: 13px; font-weight: 600; color: #5a7a8a; margin-bottom: 6px; display: block; }
+    .form-input { width: 100%; padding: 12px 16px; border: 1.5px solid #e0eff5; border-radius: 10px; font-size: 15px; color: #1a2e3a; outline: none; font-family: 'Inter', sans-serif; background: #f8fcfe; margin-bottom: 14px; }
+    .form-input:focus { border-color: #3bb8d8; }
+    .form-btn { width: 100%; background: #3bb8d8; color: #fff; border: none; padding: 14px; border-radius: 50px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 4px; }
+
+    /* CONTACTS */
+    .contacts { background: #f0f8fb; padding: 64px 40px; }
+    .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 24px; }
+    .contact-icon { width: 44px; height: 44px; background: #e8f5fb; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-icon i { font-size: 20px; color: #3bb8d8; }
+    .contact-label { font-size: 12px; color: #5a7a8a; font-weight: 600; margin-bottom: 2px; }
+    .contact-value { font-size: 15px; color: #1a2e3a; font-weight: 600; }
+    .contact-value a { color: #1a2e3a; text-decoration: none; }
+    .contact-value a:hover { color: #3bb8d8; }
+    .contact-links { display: flex; gap: 10px; margin-top: 10px; }
+    .contact-link-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; text-decoration: none; }
+    .contact-link-btn.phone { background: #3bb8d8; color: #fff; }
+    .contact-link-btn.wa { background: #25D366; color: #fff; }
+    .map-placeholder { background: linear-gradient(135deg, #d0eef7, #c0e8f5); border-radius: 16px; height: 280px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; }
+    .map-placeholder i { font-size: 40px; color: #3bb8d8; }
+    .map-placeholder p { font-size: 14px; color: #5a7a8a; text-align: center; line-height: 1.6; }
+
+    /* FLOATING WA */
+    .wa-float { position: fixed; bottom: 28px; right: 28px; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 999; box-shadow: 0 4px 16px rgba(37,211,102,0.4); }
+    .wa-float i { font-size: 28px; color: #fff; }
+
+    /* FOOTER */
+    .footer { background: #1a2e3a; padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-logo { font-size: 16px; font-weight: 700; color: #fff; }
+    .footer-logo span { color: #3bb8d8; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding: 40px 20px; }
+      .hero-title { font-size: 32px; }
+      .about-grid, .form-inner, .contacts-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid, .cases-grid, .team-grid, .reviews-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .section { padding: 48px 20px; }
+      .nav { padding: 0 20px; }
+      .footer { flex-direction: column; text-align: center; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Floating WhatsApp -->
+<a class="wa-float" href="https://wa.me/79001110502" target="_blank" aria-label="Написать в WhatsApp">
+  <i class="ti ti-brand-whatsapp"></i>
+</a>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="#">
+    <i class="ti ti-tooth" style="font-size:22px;color:#3bb8d8"></i>
+    Магия <span>улыбки</span>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Услуги</a>
+    <a href="#team">Врачи</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contacts">Контакты</a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-phone" href="tel:+79001110502">+7 (900) 111-05-02</a>
+    <button class="nav-cta" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})">Записаться</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Стоматология в Твери</div>
+    <h1 class="hero-title">Доверьте свою <em>улыбку</em> профессионалам</h1>
+    <p class="hero-sub">Собственная зуботехническая лаборатория — протезирование от 1 дня. Весь спектр услуг в одном месте.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="tel:+79001110502"><i class="ti ti-phone"></i> Позвонить</a>
+      <a class="btn-secondary" href="https://wa.me/79001110502" target="_blank"><i class="ti ti-brand-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">20+</div><div class="stat-label">лет опыта</div></div>
+      <div class="stat"><div class="stat-num">1 день</div><div class="stat-label">протезирование</div></div>
+      <div class="stat"><div class="stat-num">5000+</div><div class="stat-label">пациентов</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card accent">
+      <div class="hero-card-icon"><i class="ti ti-building-hospital"></i></div>
+      <div>
+        <div class="hero-card-title">Своя лаборатория</div>
+        <div class="hero-card-sub">Протезы изготавливаются прямо у нас</div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-icon"><i class="ti ti-clock"></i></div>
+      <div>
+        <div class="hero-card-title">Срок от 1 дня</div>
+        <div class="hero-card-sub">Быстрее, чем в обычной клинике</div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-icon"><i class="ti ti-award"></i></div>
+      <div>
+        <div class="hero-card-title">Стаж врачей 20+ лет</div>
+        <div class="hero-card-sub">Команда сертифицированных специалистов</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="section-eyebrow">О клинике</div>
+  <div class="about-grid">
+    <div>
+      <h2 class="section-title">Комплексный подход к здоровью ваших зубов</h2>
+      <p class="section-sub">Клиника «Магия улыбки» — единственная в Твери с собственной зуботехнической лабораторией. Весь цикл протезирования на месте: от консультации до готовой конструкции.</p>
+      <div class="about-features">
+        <div class="about-feat"><i class="ti ti-flask"></i><div class="about-feat-title">Своя лаборатория</div><div class="about-feat-sub">Полный цикл без посредников</div></div>
+        <div class="about-feat"><i class="ti ti-users"></i><div class="about-feat-title">Команда профи</div><div class="about-feat-sub">Врачи и техники в одном месте</div></div>
+        <div class="about-feat"><i class="ti ti-calendar-check"></i><div class="about-feat-title">Быстро и точно</div><div class="about-feat-sub">Готовые конструкции от 1 дня</div></div>
+        <div class="about-feat"><i class="ti ti-shield-check"></i><div class="about-feat-title">Гарантия качества</div><div class="about-feat-sub">Полная ответственность за результат</div></div>
+      </div>
+    </div>
+    <div class="about-image-block">
+      <!-- ФОТО КЛИНИКИ: замените src на путь к фото -->
+      <!-- <img src="images/clinic.jpg" alt="Клиника Магия улыбки"> -->
+      <i class="ti ti-building-hospital" style="font-size:64px;color:rgba(59,184,216,0.3)"></i>
+      <div class="about-badge">
+        <i class="ti ti-star-filled" style="color:#f5a623"></i>
+        <div><div class="about-badge-text">Рейтинг клиники</div><div class="about-badge-sub">4.9 · 200+ отзывов</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="section-eyebrow">Наши услуги</div>
+  <h2 class="section-title">Всё для вашей улыбки</h2>
+  <p class="section-sub">Широкий спектр стоматологических услуг — от профилактики до сложного протезирования.</p>
+  <div class="services-grid">
+    <div class="service-card featured">
+      <div class="service-icon"><i class="ti ti-tooth"></i></div>
+      <div class="service-title">Несъёмное протезирование</div>
+      <div class="service-desc">Коронки, мосты, виниры. Изготовление в собственной лаборатории — от 1 дня.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="ti ti-device-heart-monitor"></i></div>
+      <div class="service-title">Съёмное протезирование</div>
+      <div class="service-desc">Частичные и полные протезы из современных материалов. Комфортное ношение.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="ti ti-pill"></i></div>
+      <div class="service-title">Имплантация</div>
+      <div class="service-desc">Установка имплантов с дальнейшим протезированием — всё в одной клинике.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="ti ti-sparkles"></i></div>
+      <div class="service-title">Керамические работы</div>
+      <div class="service-desc">Безметалловая керамика, E.max, циркониевые коронки. Эстетика и долговечность.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section why" id="why">
+  <div class="section-eyebrow">Почему выбирают нас</div>
+  <h2 class="section-title">Наши преимущества</h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <div class="why-title">Своя зуботехническая лаборатория</div>
+      <div class="why-desc">Единственная клиника в Твери с полным циклом производства протезов. Контроль качества на каждом этапе.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <div class="why-title">Протезирование от 1 дня</div>
+      <div class="why-desc">Благодаря собственной лаборатории делаем работы в разы быстрее. Никаких недель ожидания.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <div class="why-title">Опыт 20+ лет</div>
+      <div class="why-desc">Команда врачей и зубных техников с многолетним стажем. Сотни сложных клинических случаев.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="section cases" id="cases">
+  <div class="section-eyebrow">Наши работы</div>
+  <h2 class="section-title">Результаты, которые говорят сами за себя</h2>
+  <div class="cases-grid">
+    <div class="case-card">
+      <div class="case-before-after">
+        <!-- ФОТО ДО/ПОСЛЕ: замените src на пути к фото -->
+        <div class="case-img before">До</div>
+        <div class="case-img after">После</div>
+      </div>
+      <div class="case-type">Несъёмное протезирование</div>
+      <div class="case-title">Циркониевые коронки на 6 зубов</div>
+      <div class="case-desc">Полное восстановление эстетики и функции.</div>
+      <span class="case-time">⏱ 3 дня</span>
+    </div>
+    <div class="case-card">
+      <div class="case-before-after">
+        <div class="case-img before">До</div>
+        <div class="case-img after">После</div>
+      </div>
+      <div class="case-type">Имплантация</div>
+      <div class="case-title">Имплант + коронка под ключ</div>
+      <div class="case-desc">Коронка изготовлена в нашей лаборатории за 1 день.</div>
+      <span class="case-time">⏱ 1 день (коронка)</span>
+    </div>
+    <div class="case-card">
+      <div class="case-before-after">
+        <div class="case-img before">До</div>
+        <div class="case-img after">После</div>
+      </div>
+      <div class="case-type">Съёмное протезирование</div>
+      <div class="case-title">Полный съёмный протез</div>
+      <div class="case-desc">Идеальная посадка с первой примерки.</div>
+      <span class="case-time">⏱ 2 дня</span>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section team" id="team">
+  <div class="section-eyebrow">Наша команда</div>
+  <h2 class="section-title">Врачи, которым доверяют</h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">
+        <!-- ФОТО ВРАЧА: <img src="images/doctor1.jpg" alt="Главный врач"> -->
+        <i class="ti ti-user"></i>
+      </div>
+      <div class="team-name">Главный врач</div>
+      <div class="team-role">Ортопед-стоматолог</div>
+      <div class="team-exp">Стаж 20+ лет · Протезирование любой сложности</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">
+        <!-- ФОТО: <img src="images/doctor2.jpg" alt="Зубной техник"> -->
+        <i class="ti ti-user"></i>
+      </div>
+      <div class="team-name">Зубной техник</div>
+      <div class="team-role">Руководитель лаборатории</div>
+      <div class="team-exp">Стаж 15+ лет · Мастер керамики и циркония</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">
+        <!-- ФОТО: <img src="images/doctor3.jpg" alt="Врач-имплантолог"> -->
+        <i class="ti ti-user"></i>
+      </div>
+      <div class="team-name">Врач-имплантолог</div>
+      <div class="team-role">Хирург-стоматолог</div>
+      <div class="team-exp">Стаж 12+ лет · Имплантация любой сложности</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section reviews" id="reviews">
+  <div class="section-eyebrow">Отзывы</div>
+  <h2 class="section-title">Что говорят пациенты</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="review-text">«Сделали коронки за 2 дня! В других клиниках говорили — минимум 2 недели. Качество отличное, подошло идеально с первого раза.»</div>
+      <div class="review-author"><div class="review-avatar">АН</div><div><div class="review-name">Анна Н.</div><div class="review-date">Март 2024</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="review-text">«Поставил имплант и сразу сделали временную коронку. Потом постоянную за 1 день. Нигде больше такого не видел.»</div>
+      <div class="review-author"><div class="review-avatar">СМ</div><div><div class="review-name">Сергей М.</div><div class="review-date">Февраль 2024</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="review-text">«Приехала из другого города специально в «Магию улыбки». Сделали всё быстро и профессионально. Врач объяснял каждый шаг.»</div>
+      <div class="review-author"><div class="review-avatar">ОК</div><div><div class="review-name">Ольга К.</div><div class="review-date">Апрель 2024</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+  <div class="section-eyebrow">Частые вопросы</div>
+  <h2 class="section-title" style="text-align:center">Ответы на ваши вопросы</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">Сколько стоит протезирование? <i class="ti ti-plus"></i></div>
+      <div class="faq-a">Стоимость зависит от вида конструкции и материала. Точную цену назовём после осмотра. Консультация бесплатна.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Какой срок изготовления протеза? <i class="ti ti-plus"></i></div>
+      <div class="faq-a">Благодаря собственной лаборатории — от 1 рабочего дня. Коронки — 1–3 дня, съёмные протезы — 2–5 дней.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Кто будет делать мои протезы? <i class="ti ti-plus"></i></div>
+      <div class="faq-a">Ваш протез изготовят наши зубные техники с опытом 15+ лет прямо в нашей лаборатории. Врач и техник работают в тандеме.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Какие материалы используются? <i class="ti ti-plus"></i></div>
+      <div class="faq-a">Цирконий, безметалловая керамика E.max, металлокерамика. Все материалы сертифицированы и гипоаллергенны.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Есть ли гарантия на работы? <i class="ti ti-plus"></i></div>
+      <div class="faq-a">Да, мы даём гарантию на все ортопедические конструкции. Срок уточняется на консультации.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="form">
+  <div class="form-inner">
+    <div>
+      <h2 class="form-title">Запишитесь на бесплатную консультацию</h2>
+      <p class="form-sub">Расскажем о возможностях, подберём решение и назовём точную цену.</p>
+      <div class="form-trust">
+        <div class="form-trust-item"><i class="ti ti-check"></i> Консультация бесплатно</div>
+        <div class="form-trust-item"><i class="ti ti-check"></i> Ответим в течение 30 минут</div>
+        <div class="form-trust-item"><i class="ti ti-check"></i> Работаем без выходных</div>
+      </div>
+    </div>
+    <div class="form-box">
+      <label class="form-label">Ваше имя</label>
+      <input class="form-input" type="text" placeholder="Иван Иванов" name="name">
+      <label class="form-label">Телефон</label>
+      <input class="form-input" type="tel" placeholder="+7 (900) 000-00-00" name="phone">
+      <label class="form-label">Что вас интересует?</label>
+      <input class="form-input" type="text" placeholder="Протезирование, имплантация..." name="service">
+      <button class="form-btn" type="button">Записаться на приём →</button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="contacts" id="contacts">
+  <div class="section-eyebrow">Контакты</div>
+  <h2 class="section-title">Как нас найти</h2>
+  <div class="contacts-grid">
+    <div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="ti ti-map-pin"></i></div>
+        <div>
+          <div class="contact-label">Адрес</div>
+          <div class="contact-value">г. Тверь, ул. Крупской, д. 7</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="ti ti-phone"></i></div>
+        <div>
+          <div class="contact-label">Телефон / WhatsApp</div>
+          <div class="contact-value"><a href="tel:+79001110502">+7 (900) 111-05-02</a></div>
+          <div class="contact-links">
+            <a class="contact-link-btn phone" href="tel:+79001110502"><i class="ti ti-phone"></i> Позвонить</a>
+            <a class="contact-link-btn wa" href="https://wa.me/79001110502" target="_blank"><i class="ti ti-brand-whatsapp"></i> WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="ti ti-mail"></i></div>
+        <div>
+          <div class="contact-label">Email</div>
+          <!-- EMAIL: замените на реальный -->
+          <div class="contact-value">magiaulybki@mail.ru</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <!-- КАРТА: вставьте iframe от Яндекс.Карты вместо этого блока -->
+      <div class="map-placeholder">
+        <i class="ti ti-map-2"></i>
+        <p>г. Тверь, ул. Крупской, д. 7<br><span style="font-size:12px;color:#3bb8d8">Вставьте iframe Яндекс.Карты</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">Магия <span>улыбки</span></div>
+  <div class="footer-copy">© 2024 Стоматология «Магия улыбки» · г. Тверь</div>
+  <div class="footer-links"><a href="#">Политика конфиденциальности</a></div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(q) {
+    q.addEventListener('click', function() {
+      var item = this.parentElement;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
