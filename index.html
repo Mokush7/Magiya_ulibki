@@ -26,7 +26,7 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); cursor: none; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAADKklEQVR4AbSSW0hUQRjH/zOntZuWXXRfIhKiIomg6yr1UA9BUdRDkmv1VJAU0WMQlWYXjHpKMM0gElwvixaat4TUVXdddSm8m2ZmRbleWq+r7u45zcx6VnZ9yKAOc/nm//++35kZhuIff/8fqN0XExEeFXcrTKe/ul53ZhcQI80fIkbiGve00bE3Q3Wxm+Y9b+S3Q2103H2iCeohBEmUkicSlWzaKM2oNkqfGx6lL+Ax1yjzAHp3mSR9Co+OS/SivKMPqNXpTzDpRnzsMdpeko7ut8/xOvUWzp08tGRNaMip9WtWHzt/8rCmKC1BeG3Fabhw+gglQEKY7uxRViuaDyhppOTtmzfi9hU91q4ORsjK5dDt3IbH1y8u7ShJD2orfrr00fULQXt3bBHeutAQ3L12HlsjNijSEpIsaGyYAyZSt1vedmB3JAhh/2TGYhohBAf3RBJZ9kSqdy2Aa/d3BzOPhoasXAzHL2dV8AoQEClsO5ZzQwBHrFljkkSHO3u/cu2vemfvNxBKfg62Gyd4oQDywOP2mCutzYrHI/Plovqsy43qhhZFlhWrWuADygopGJ90khpbq+r9cTY1tmLSOU2IIuepyT6g2+V6pSiQS0021fPNjS0f0dTa7VurQVmNDbzGQ6eKVM0H/GUzjjKxstTU5HfmjLwynIi/g+OXEvGioIKleJvCSCWmRp5bMVRXOO5VAR+QC2zvlfZhB+37PsCXcM7M4mGGcZYVv2RbyU5Oz3NxjZs9/T8w4hinTH/H12r3AzLRwjred/TyCVmFlZiYmg6SZZKiEKSMTkxpcoqrhdfS9VnMCiX1Ipgb/IADdkcdIZipsjYL2/CmygUobUNWg81uzrYQoCu32MSPCfYi2PvD9OBMsNiEKGCDHxA9pTPsCZTmlphw+U4q2nv6NR6QeyxPNFnBgw+dvfRKUiqMZbXstCiC7Rn7qbDF4A9kktOjuQgFDfnltezqlIQhsyGHyaLZLYZMgNzPL69jG0eDE654BHwLgOMNmcMDFsP+WUIi7JbspIB8DJizbrJjRPCcMYtxJNBfAFQTHGbDFzUOnB31OX2Bmrr+DQAA//8TryNzAAAABklEQVQDAL7oRDhQKeFAAAAAAElFTkSuQmCC") 10 3, auto; }
 
     /* ===== МОДАЛКА ЗАПИСИ ===== */
     .modal-overlay {
@@ -100,21 +100,7 @@
     }
 
     /* ===== КАСТОМНЫЙ КУРСОР ===== */
-    .cursor-dot {
-      width: 8px; height: 8px; background: var(--accent);
-      border-radius: 50%; position: fixed; pointer-events: none;
-      z-index: 9999; transform: translate(-50%,-50%);
-      transition: transform 0.1s ease, opacity 0.2s;
-    }
-    .cursor-ring {
-      width: 36px; height: 36px; border: 2px solid var(--accent);
-      border-radius: 50%; position: fixed; pointer-events: none;
-      z-index: 9998; transform: translate(-50%,-50%);
-      transition: width 0.25s ease, height 0.25s ease, border-color 0.25s, transform 0.12s ease, opacity 0.2s;
-      opacity: 0.7;
-    }
-    .cursor-ring.hover { width: 56px; height: 56px; border-color: var(--blue); opacity: 0.4; }
-    a, button, [onclick] { cursor: none; }
+    a, button, [onclick], label { cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAADKklEQVR4AbSSW0hUQRjH/zOntZuWXXRfIhKiIomg6yr1UA9BUdRDkmv1VJAU0WMQlWYXjHpKMM0gElwvixaat4TUVXdddSm8m2ZmRbleWq+r7u45zcx6VnZ9yKAOc/nm//++35kZhuIff/8fqN0XExEeFXcrTKe/ul53ZhcQI80fIkbiGve00bE3Q3Wxm+Y9b+S3Q2103H2iCeohBEmUkicSlWzaKM2oNkqfGx6lL+Ax1yjzAHp3mSR9Co+OS/SivKMPqNXpTzDpRnzsMdpeko7ut8/xOvUWzp08tGRNaMip9WtWHzt/8rCmKC1BeG3Fabhw+gglQEKY7uxRViuaDyhppOTtmzfi9hU91q4ORsjK5dDt3IbH1y8u7ShJD2orfrr00fULQXt3bBHeutAQ3L12HlsjNijSEpIsaGyYAyZSt1vedmB3JAhh/2TGYhohBAf3RBJZ9kSqdy2Aa/d3BzOPhoasXAzHL2dV8AoQEClsO5ZzQwBHrFljkkSHO3u/cu2vemfvNxBKfg62Gyd4oQDywOP2mCutzYrHI/Plovqsy43qhhZFlhWrWuADygopGJ90khpbq+r9cTY1tmLSOU2IIuepyT6g2+V6pSiQS0021fPNjS0f0dTa7VurQVmNDbzGQ6eKVM0H/GUzjjKxstTU5HfmjLwynIi/g+OXEvGioIKleJvCSCWmRp5bMVRXOO5VAR+QC2zvlfZhB+37PsCXcM7M4mGGcZYVv2RbyU5Oz3NxjZs9/T8w4hinTH/H12r3AzLRwjred/TyCVmFlZiYmg6SZZKiEKSMTkxpcoqrhdfS9VnMCiX1Ipgb/IADdkcdIZipsjYL2/CmygUobUNWg81uzrYQoCu32MSPCfYi2PvD9OBMsNiEKGCDHxA9pTPsCZTmlphw+U4q2nv6NR6QeyxPNFnBgw+dvfRKUiqMZbXstCiC7Rn7qbDF4A9kktOjuQgFDfnltezqlIQhsyGHyaLZLYZMgNzPL69jG0eDE654BHwLgOMNmcMDFsP+WUIi7JbspIB8DJizbrJjRPCcMYtxJNBfAFQTHGbDFzUOnB31OX2Bmrr+DQAA//8TryNzAAAABklEQVQDAL7oRDhQKeFAAAAAAElFTkSuQmCC") 10 3, pointer; }
 
     /* ===== NAV ===== */
     .nav { background: var(--blue); padding: 0 40px; height: 68px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(14,42,110,0.3); }
@@ -240,7 +226,7 @@
     .faq { background: var(--bg2); }
     .faq-list { max-width: 720px; margin: 40px auto 0; }
     .faq-item { border: 1.5px solid var(--border); border-radius: 14px; margin-bottom: 12px; }
-    .faq-q { padding: 18px 22px; font-size: 15px; font-weight: 600; color: var(--blue); cursor: none; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+    .faq-q { padding: 18px 22px; font-size: 15px; font-weight: 600; color: var(--blue); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
     .faq-q i { font-size: 18px; color: var(--accent); transition: transform 0.2s; }
     .faq-item.open .faq-q i { transform: rotate(45deg); }
     .faq-item.open { border-color: var(--accent); }
@@ -302,7 +288,6 @@
       .nav { padding: 0 20px; }
       .footer { flex-direction: column; text-align: center; padding: 24px 20px; }
       body { cursor: auto; }
-      .cursor-dot, .cursor-ring { display: none; }
       a, button, [onclick] { cursor: pointer; }
     }
   </style>
@@ -331,8 +316,6 @@
   </div>
 </div>
 
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 
 <!-- Floating WhatsApp -->
 <a class="wa-float" href="https://wa.me/79001110502" target="_blank" aria-label="Написать в WhatsApp">
@@ -750,34 +733,6 @@
 
   // Custom cursor
   (function() {
-    var dot  = document.getElementById('cursorDot');
-    var ring = document.getElementById('cursorRing');
-    if (!dot || !ring) return;
-    var mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', function(e) {
-      mx = e.clientX; my = e.clientY;
-      dot.style.left  = mx + 'px';
-      dot.style.top   = my + 'px';
-    });
-    function lerp(a, b, t) { return a + (b - a) * t; }
-    function animate() {
-      rx = lerp(rx, mx, 0.14);
-      ry = lerp(ry, my, 0.14);
-      ring.style.left = rx + 'px';
-      ring.style.top  = ry + 'px';
-      requestAnimationFrame(animate);
-    }
-    animate();
-    document.querySelectorAll('a, button, [onclick], .faq-q, .nav-cta').forEach(function(el) {
-      el.addEventListener('mouseenter', function() { ring.classList.add('hover'); });
-      el.addEventListener('mouseleave', function() { ring.classList.remove('hover'); });
-    });
-    document.addEventListener('mouseleave', function() {
-      dot.style.opacity = '0'; ring.style.opacity = '0';
-    });
-    document.addEventListener('mouseenter', function() {
-      dot.style.opacity = '1'; ring.style.opacity = '0.7';
-    });
   })();
 </script>
 
