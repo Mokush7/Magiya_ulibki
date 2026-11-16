@@ -291,6 +291,19 @@
       body { cursor: auto; }
       a, button, [onclick] { cursor: pointer; }
     }
+
+    /* ===== ЦЕНЫ ===== */
+    .prices-tabs { display: flex; gap: 8px; margin: 32px 0 24px; justify-content: center; flex-wrap: wrap; }
+    .price-tab { padding: 10px 24px; border-radius: 50px; border: 2px solid var(--border); background: #fff; color: var(--blue); font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .price-tab.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .price-tab:hover:not(.active) { border-color: var(--accent); color: var(--accent); }
+    .prices-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+    .prices-grid.hidden { display: none; }
+    .price-card { background: #fff; border-radius: 14px; border: 1.5px solid var(--border); padding: 20px 22px; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: box-shadow 0.2s, border-color 0.2s; }
+    .price-card:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(74,158,222,0.12); }
+    .price-name { font-size: 14px; color: var(--text); font-weight: 500; }
+    .price-val { font-size: 16px; font-weight: 800; color: var(--blue); white-space: nowrap; }
+    @media(max-width:600px) { .price-card { flex-direction: column; align-items: flex-start; gap: 6px; } }
   </style>
 </head>
 <body>
@@ -331,6 +344,7 @@
   </a>
   <div class="nav-links">
     <a href="#services">Услуги</a>
+    <a href="#prices">Цены</a>
     <a href="#team">Врачи</a>
     <a href="#reviews">Отзывы</a>
     <a href="#faq">FAQ</a>
@@ -436,6 +450,35 @@
       <div class="service-desc">Безметалловая керамика, E.max, циркониевые коронки. Эстетика и долговечность.</div>
     </div>
   </div>
+</section>
+
+<!-- PRICES -->
+<section class="section prices" id="prices">
+  <div class="section-eyebrow">Прозрачные цены</div>
+  <h2 class="section-title">Стоимость услуг</h2>
+  <p class="section-sub">Цены актуальны. Точную стоимость назовём после осмотра — консультация бесплатна.</p>
+  <div class="prices-tabs">
+    <button class="price-tab active" onclick="showPriceTab('therapy')">Терапия</button>
+    <button class="price-tab" onclick="showPriceTab('surgery')">Хирургия</button>
+    <button class="price-tab" onclick="showPriceTab('ortho')">Ортопедия</button>
+  </div>
+  <div class="prices-grid" id="price-therapy">
+    <div class="price-card"><div class="price-name">Первичный приём терапевта</div><div class="price-val">2 000 ₽</div></div>
+    <div class="price-card"><div class="price-name">Повторный приём</div><div class="price-val">1 000 ₽</div></div>
+    <div class="price-card"><div class="price-name">Профессиональная чистка</div><div class="price-val">7 000 ₽</div></div>
+    <div class="price-card"><div class="price-name">Кариес поверхностный</div><div class="price-val">4 000 ₽</div></div>
+    <div class="price-card"><div class="price-name">Кариес глубокий</div><div class="price-val">6 000 ₽</div></div>
+  </div>
+  <div class="prices-grid hidden" id="price-surgery">
+    <div class="price-card"><div class="price-name">Удаление зуба</div><div class="price-val">2 500 ₽</div></div>
+  </div>
+  <div class="prices-grid hidden" id="price-ortho">
+    <div class="price-card"><div class="price-name">Первичный приём ортопеда</div><div class="price-val">2 000 ₽</div></div>
+    <div class="price-card"><div class="price-name">Литая коронка</div><div class="price-val">9 000 ₽</div></div>
+    <div class="price-card"><div class="price-name">МК-коронка</div><div class="price-val">15 000 ₽</div></div>
+    <div class="price-card"><div class="price-name">Частичный съёмный протез</div><div class="price-val">24 000 ₽</div></div>
+  </div>
+  <p style="text-align:center;margin-top:28px;color:var(--muted);font-size:13px;">Полный прайс — на консультации. Принимаем карты, наличные, рассрочку.</p>
 </section>
 
 <!-- WHY -->
@@ -731,7 +774,15 @@
 
   // Custom cursor
   (function() {
-  })();
+
+    function showPriceTab(tab) {
+      document.querySelectorAll('.prices-grid').forEach(function(g) { g.classList.add('hidden'); });
+      document.querySelectorAll('.price-tab').forEach(function(b) { b.classList.remove('active'); });
+      document.getElementById('price-' + tab).classList.remove('hidden');
+      event.target.classList.add('active');
+    }
+
+    })();
 </script>
 
 </body>
