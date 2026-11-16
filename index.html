@@ -458,9 +458,9 @@
   <h2 class="section-title">Стоимость услуг</h2>
   <p class="section-sub">Цены актуальны. Точную стоимость назовём после осмотра — консультация бесплатна.</p>
   <div class="prices-tabs">
-    <button class="price-tab active" onclick="showPriceTab('therapy')">Терапия</button>
-    <button class="price-tab" onclick="showPriceTab('surgery')">Хирургия</button>
-    <button class="price-tab" onclick="showPriceTab('ortho')">Ортопедия</button>
+    <button class="price-tab active" data-tab="therapy">Терапия</button>
+    <button class="price-tab" data-tab="surgery">Хирургия</button>
+    <button class="price-tab" data-tab="ortho">Ортопедия</button>
   </div>
   <div class="prices-grid" id="price-therapy">
     <div class="price-card"><div class="price-name">Первичный приём терапевта</div><div class="price-val">2 000 ₽</div></div>
@@ -775,12 +775,14 @@
   // Custom cursor
   (function() {
 
-    function showPriceTab(tab) {
-      document.querySelectorAll('.prices-grid').forEach(function(g) { g.classList.add('hidden'); });
-      document.querySelectorAll('.price-tab').forEach(function(b) { b.classList.remove('active'); });
-      document.getElementById('price-' + tab).classList.remove('hidden');
-      event.target.classList.add('active');
-    }
+    document.querySelectorAll('.price-tab').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.prices-grid').forEach(function(g) { g.classList.add('hidden'); });
+        document.querySelectorAll('.price-tab').forEach(function(b) { b.classList.remove('active'); });
+        document.getElementById('price-' + btn.dataset.tab).classList.remove('hidden');
+        btn.classList.add('active');
+      });
+    });
 
     })();
 </script>
